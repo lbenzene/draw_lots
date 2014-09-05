@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>抽签</title>
+	<style type="text/css">
+		div, html, body {
+			margin: 0 !important;
+			width: 100%;
+			height: 100%;
+		}
+
+		#name {
+			display: block;
+			font-family: "microsoft yahei";
+			font-size: 4rem;
+			text-align: center;
+			margin: 0;
+			background-color: #CCCCCC;
+			border: 0px solid #333333;
+			height: 50%;
+			vertical-align: middle;
+			line-height: 5em;
+		}
+		a {
+			display: inline-block;
+			font-family: "microsoft yahei";
+			font-size: 2rem;
+			line-height: 5em;
+			vertical-align: middle;
+			width: 50%;
+			height: 50%;
+			text-align: center;
+		}
+		#start {
+			background-color: #333399;
+		}
+		#start:hover, #start:active {
+			background-color: #0000FF;
+		}
+		#stop {
+			background-color: #993333;
+		}
+		#stop:hover, #stop:active {
+			background-color: #FF0000;
+		}
+	</style>
+</head>
+
+<body>
+<div>
+	<h1 id="name">赵琬彤</h1>
+	<a id="start" onclick="start()">给我抽</a><a id="stop" onclick="stop()">快停下</a>
+</div>
+
+<script type="text/javascript">
+var student = new Array();
+student[0]  = "赵琬彤"
+student[1]  = "孙婧卓"
+student[2]  = "蔡诗萌"
+student[3]  = "侯杰"
+student[4]  = "陈贤卿"
+student[5]  = "陈弘基"
+student[6]  = "冯飞"
+student[7]  = "陈稼城"
+student[8]  = "柳钰儒"
+student[9]  = "吴航"
+student[10] = "顾贇"
+student[11] = "王之昀"
+student[12] = "郭红日"
+student[13] = "徐成司"
+student[14] = "邬舒益"
+student[15] = "章霖"
+student[16] = "邹世博"
+student[17] = "张攀峰"
+student[18] = "俞烨隆"
+student[19] = "王子颉"
+student[20] = "童心"
+student[21] = "杨琦"
+student[22] = "黎经元"
+student[23] = "王长勇"
+
+var speed = 80, total = 23;
+var t,s,n;
+var oname = document.querySelector("#name");
+function GetRandomNum(Min,Max)
+{   
+	var Range = Max - Min;   
+	var Rand = Math.random();   
+	return (Min + Math.round(Rand * Range));   
+} 
+
+function ints(n)
+{
+    return Math.floor(n); 
+}
+
+function timecount()
+{
+	n = ints( GetRandomNum(0, total) );
+	s = student[n];
+	oname.innerHTML = s;
+
+    t = setTimeout("timecount()", speed);    
+}
+
+function start()
+{
+    timecount();
+}
+
+function stop()
+{
+    clearTimeout(t);
+}
+
+</script>
+
+</body>
+</html>
